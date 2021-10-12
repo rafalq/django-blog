@@ -1,6 +1,13 @@
 {% extends "blog/base.html" %}
 {% block content %}
 <div class="w-50 m-auto py-4">
-  <h1 class="text-center py-4">{{ user.username }}</h1>
+  <h1 class="text-center py-4">PROFILE</h1>
+  <div class="d-flex">
+    <img src="{{ user.profile.image.url }}" class="img-fluid img-thumbnail w-50 h-50">
+    <div class="p-4">
+      <h2>{{ user.username }}</h2>
+      <p class="text-secondary">{{ user.email }}</p>
+    </div>
+  </div>
 </div>
 {% endblock content %}

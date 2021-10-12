@@ -1,8 +1,13 @@
 {% extends "blog/base.html" %} 
 {% block content %}
+<div class="w-50 m-auto">
 	{% for post in posts %}
-		<h1>{{ post.title }}</h1>
-		<p>By {{ post.author }} | {{ post.date_posted|timesince }}</p>
-		<p>{{ post.content }}</p>
+		<div class="border border-secondary p-4 bg-white mb-2 d-flex flex-column">
+			<p><span class="float-end text-muted">{{ post.date_posted|timesince }}</span></p>
+			<h2 class="text-center">{{ post.title }}</h2>
+			<p>By <span class="fw-bold">{{ post.author }}</span></p>
+			<p>{{ post.content }}</p>
+		</div>	
 	{% endfor %}
+</div>
 {% endblock content %}
