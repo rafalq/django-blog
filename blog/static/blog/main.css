@@ -1,7 +1,17 @@
+* {
+	font-family: 'Lato', sans-serif;
+}
+
 body {
 	background-color: rgb(238, 242, 247);
 }
 
 a {
 	text-decoration: none;
+}
+
+.article-img {
+	height: 65px;
+	width: 65px;
+	margin-right: 16px;
 }

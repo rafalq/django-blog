@@ -1,4 +1,5 @@
 {% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
 <div class="w-50 m-auto py-4">
   <h1 class="text-center py-4">PROFILE</h1>
@@ -8,6 +9,14 @@
       <h2>{{ user.username }}</h2>
       <p class="text-secondary">{{ user.email }}</p>
     </div>
+  </div>
+  <div class="py-4">
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ u_form|crispy }}
+      {{ p_form|crispy }}
+      <button type="submit" class="btn btn-secondary float-end">UPDATE</button>
+    </form>
   </div>
 </div>
 {% endblock content %}
