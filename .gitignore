@@ -150,7 +150,11 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
-# custom vs
+# CUSTOM
+# vscode
 .vscode/settings.json
+
+# media directory
+media/
 
 # End of https://www.toptal.com/developers/gitignore/api/django

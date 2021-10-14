@@ -1,0 +1,30 @@
+{% extends "blog/base.html" %} 
+{% block content %}
+<div class="w-50 m-auto">
+  <div class="border border-black-50 shadow rounded bg-body bg-white mb-2 d-flex flex-column">
+    <div class="d-flex justify-content-between px-3 pt-3 pb-1">
+      <a href="{% url 'blog-home' %}" class="text-muted">
+        <i class="fas fa-chevron-left"></i>
+        <span class="ms-1">Back</span>
+      </a>
+      <p><span class="text-muted">{{ object.date_posted|timesince }}</span></p>
+    </div>
+    <div class="px-5 pb-4"> 
+      <div class="d-flex justify-content-between">
+        <div class="d-flex align-items-center">
+					<div style="background-image: url('{{ object.author.profile.image.url }}');" class="article-img"></div>
+					<span class="text-muted ms-3">{{ object.author }}</span>
+				</div>
+        {% if object.author == user or user.username == 'admin' %}
+          <div class="d-flex align-items-center">
+            <a href={% url 'post-update' object.id %} class="btn btn-sm btn-secondary me-3">UPDATE</a>
+            <a href={% url 'post-delete' object.id %} class="btn btn-sm btn-danger">DELETE</a>
+          </div>
+        {% endif %}
+      </div>  
+      <h1 class="text-center pt-3">{{ object.title }}</h1>
+      <p class="mt-4 article-content">{{ object.content }}</p>
+    </div>
+  </div>	
+</div>
+{% endblock content %}

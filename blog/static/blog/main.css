@@ -8,10 +8,21 @@ body {
 
 a {
 	text-decoration: none;
+	color: #08041b;
+}
+
+a:hover {
+	color: #08041b;
 }
 
 .article-img {
-	height: 65px;
 	width: 65px;
-	margin-right: 16px;
+	height: 65px;
+	background-size: cover;
+	background-position: top center;
+	border-radius: 50%;
+}
+
+.article-content {
+	line-height: 1.6;
 }

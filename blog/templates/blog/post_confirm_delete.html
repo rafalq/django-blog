@@ -1,0 +1,24 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %} 
+{% block content %}
+<div class="w-50 m-auto">
+  <div class="border border-black-50 shadow rounded bg-body bg-white mb-2 d-flex flex-column">
+    <div class="d-flex justify-content-between px-3 pt-3 pb-1">
+      <a href="javascript:history.go(-1)" class="text-muted">
+        <i class="fas fa-chevron-left"></i>
+        <span class="ms-1">Back</span>
+      </a>
+    </div>
+    <div class="px-5 pb-4">
+      <form method="POST">
+        {% csrf_token %}  
+        <h3 class="text-center">Are you sure you want to delete the post "{{ object.title }}"?</h3>
+        <div class="d-flex justify-content-between py-3">
+          <a href="{% url 'post-detail' object.id %}" class="btn btn-secondary">CANCEL</a>
+          <button type="submit" class="btn btn-danger">DELETE</button>
+        </div>
+      </form>
+    </div>
+  </div>	
+</div>
+{% endblock content %}
