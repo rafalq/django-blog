@@ -19,10 +19,15 @@ a:hover {
 	width: 65px;
 	height: 65px;
 	background-size: cover;
-	background-position: top center;
+	background-position: center;
 	border-radius: 50%;
 }
 
 .article-content {
 	line-height: 1.6;
+}
+
+.profile-img {
+	height: auto;
+	width: 100px;
 }

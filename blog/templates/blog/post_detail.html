@@ -13,7 +13,9 @@
       <div class="d-flex justify-content-between">
         <div class="d-flex align-items-center">
 					<div style="background-image: url('{{ object.author.profile.image.url }}');" class="article-img"></div>
-					<span class="text-muted ms-3">{{ object.author }}</span>
+          <span class="text-muted ms-3">
+						<a href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a>
+					</span>
 				</div>
         {% if object.author == user or user.username == 'admin' %}
           <div class="d-flex align-items-center">

@@ -20,10 +20,14 @@
       <div class="d-flex align-items-center">
         {% if request.path_info == '/post/new/' %}
           <div style="background-image: url('{{ user.profile.image.url }}');" class="article-img"></div>
-          <span class="text-muted ms-3">{{ user.username }}</span>
+          <span class="text-muted ms-3">
+						<a href="{% url 'user-posts' user.username %}">{{ user.username }}</a>
+					</span>
         {% else %}
           <div style="background-image: url('{{ object.author.profile.image.url }}');" class="article-img"></div>
-          <span class="text-muted ms-3">{{ object.author }}</span>
+          <span class="text-muted ms-3">
+						<a href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a>
+					</span>
         {% endif %}
 			</div>
       <form method="POST" class="pt-3">

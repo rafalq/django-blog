@@ -2,17 +2,18 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <div class="w-50 m-auto p-4 border border-black-50 bg-white">
-  <div class="d-flex align-items-center justify-content-evenly">
-    <img src="{{ user.profile.image.url }}" class="img-fluid img-thumbnail w-50 h-50">
-    <h2 class="px-4">{{ user.username }}</h2>
-  </div>
-  <div class="py-4">
-    <form method="POST" enctype="multipart/form-data">
-      {% csrf_token %}
-      {{ u_form|crispy }}
-      {{ p_form|crispy }}
-      <button type="submit" class="btn btn-secondary float-end">UPDATE</button>
-    </form>
+  <div class="d-flex justify-content-between">
+    <div>
+      <img src="{{ user.profile.image.url }}" class="profile-img">
+    </div>
+     <div class="px-4">
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ u_form|crispy }}
+        {{ p_form|crispy }}
+        <button type="submit" class="btn btn-secondary float-end">UPDATE</button>
+      </form>
+    </div>
   </div>
 </div>
 {% endblock content %}
