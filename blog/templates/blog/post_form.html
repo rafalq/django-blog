@@ -1,7 +1,7 @@
 {% extends "blog/base.html" %}
 {% load crispy_forms_tags %} 
 {% block content %}
-<div class="w-75 m-auto">
+<div class="w-50 m-auto">
   <div class="border border-black-50 shadow rounded bg-body bg-white mb-2 d-flex flex-column">
     <div class="d-flex justify-content-between px-3 pt-3 pb-1">
       <a href="javascript:history.go(-1)" class="text-muted">
@@ -18,8 +18,13 @@
     </div>
     <div class="px-5 pb-4">  
       <div class="d-flex align-items-center">
-        <div style="background-image: url('{{ object.author.profile.image.url }}');" class="article-img"></div>
-        <span class="text-muted ms-3">{{ object.author }}</span>
+        {% if request.path_info == '/post/new/' %}
+          <div style="background-image: url('{{ user.profile.image.url }}');" class="article-img"></div>
+          <span class="text-muted ms-3">{{ user.username }}</span>
+        {% else %}
+          <div style="background-image: url('{{ object.author.profile.image.url }}');" class="article-img"></div>
+          <span class="text-muted ms-3">{{ object.author }}</span>
+        {% endif %}
 			</div>
       <form method="POST" class="pt-3">
         {% csrf_token %}
